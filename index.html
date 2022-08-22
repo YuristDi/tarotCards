@@ -8,32 +8,41 @@
     <style>
         body{
             font-family: 'Trebuchet MS', sans-serif;
-            font-size: 16px;
+            font-size: 18px;
             color: #B8A233;
+            border: #B8A233 solid 2px;         
+            height: 96.5vh;
         }
         input{
-            border-radius: 0%;
             background-color: white;
             font-family: 'Trebuchet MS', sans-serif;
-            font-size: 20px;
-            margin: 10px;
+            font-size: 23px;
+            margin: 15px;
             padding: 10px;
             color: #B8A233;
-            border-color: #B8A233;
-            border-style: solid;
-            
+            border: #B8A233 solid 3px;
+        }
+        img{
+            height: 435px;
+        }
+        #titles{
+            font-size: 23px;
+            font-weight: bold;
+            margin: 10px;
         }
     </style>
 </head>
-<body>
+<body align = "center">
     <input type = "button" id = "random" value="Find out your destiny!">
-
-    <div id = "insertHere"></div>
-    
-    <div id = "result"></div>
+    <div id = "titles"></div>
+    <div id = "cards"></div>
+    <div id = "meanings"></div>
 
     <script>
-                /*1.  Створіть функцію, що повертає випадкову картку з 54-х (20-ти)*/
+        let title = document.querySelector("#titles");
+        let cardImg = document.querySelector("#cards");
+        let mean = document.querySelector("#meanings");
+
         function getRandomCard(min, max){
             return Math.floor(Math.random() * (max - min + 1) + min);
         }
@@ -42,117 +51,138 @@
             return Math.floor(Math.random() * (max - min + 1) + min);
         }
 
-        let res = document.querySelector("#result");
-
         let img = document.createElement("IMG");
 
         let tarot = [];
         tarot.push({
+            title: "THE FOOL",
             up: "UPRIGHT: Beginnings, innocence, spontaneity, a free spirit", 
             down: "REVERSED: Holding back, recklessness, risk-taking",
-            card: img.src = "https://www.biddytarot.com/wp-content/uploads/2018/06/ET-MA-00-the-Fool.jpg"}); 
+            card: "https://www.biddytarot.com/wp-content/uploads/2018/06/ET-MA-00-the-Fool.jpg"}); 
         tarot.push({
+            title: "THE MAGICIAN",
             up: "UPRIGHT: Manifestation, resourcefulness, power, inspired action", 
             down: "REVERSED: Manipulation, poor planning, untapped talents",
-            card: img.src = "https://www.biddytarot.com/wp-content/uploads/2018/06/ET-MA-01-Magician.jpg"}); 
+            card: "https://www.biddytarot.com/wp-content/uploads/2018/06/ET-MA-01-Magician.jpg"}); 
         tarot.push({
+            title: "THE HIGH PRIESTESS",
             up: "UPRIGHT: Intuition, sacred knowledge, divine feminine, the subconscious mind", 
             down: "REVERSED: Secrets, disconnected from intuition, withdrawal and silence",
-            card: img.src = "https://www.biddytarot.com/wp-content/uploads/2018/06/ET-MA-02-High-Priestess.jpg"});
+            card: "https://www.biddytarot.com/wp-content/uploads/2018/06/ET-MA-02-High-Priestess.jpg"});
         tarot.push({
+            title: "THE EMPRESS",
             up: "UPRIGHT: Femininity, beauty, nature, nurturing, abundance", 
-            down: "UPRIGHT: Femininity, beauty, nature, nurturing, abundance",
-            card: img.src = "https://www.biddytarot.com/wp-content/uploads/2018/06/ET-MA-03-The-Empress.jpg"});
+            down: "REVERSED: Creative block, dependence on others",
+            card: "https://www.biddytarot.com/wp-content/uploads/2018/06/ET-MA-03-The-Empress.jpg"});
         tarot.push({
+            title: "THE EMPEROR",
             up: "UPRIGHT: Authority, establishment, structure, a father figure", 
             down: "REVERSED: Domination, excessive control, lack of discipline, inflexibility",
-            card: img.src = "https://www.biddytarot.com/wp-content/uploads/2018/06/ET-MA-04-Emperor.jpg"});
+            card: "https://www.biddytarot.com/wp-content/uploads/2018/06/ET-MA-04-Emperor.jpg"});
         tarot.push({
+            title: "THE HIEROPHANT",
             up: "UPRIGHT: Spiritual wisdom, religious beliefs, conformity, tradition,institutions", 
             down: "REVERSED: Personal beliefs, freedom, challenging the status quo",
-            card: img.src = "https://www.biddytarot.com/wp-content/uploads/2018/04/MA-05-the-hierophant.png"});
+            card: "https://www.biddytarot.com/wp-content/uploads/2018/04/MA-05-the-hierophant.png"});
         tarot.push({
+            title: "THE LOVERS",
             up: "UPRIGHT: Love, harmony, relationships, values alignment, choices", 
             down: "REVERSED: Self-love, disharmony, imbalance, misalignment of values",
-            card: img.src = "https://www.biddytarot.com/wp-content/uploads/2018/06/ET-MA-06-the-lovers.jpg"});
+            card: "https://www.biddytarot.com/wp-content/uploads/2018/06/ET-MA-06-the-lovers.jpg"});
         tarot.push({
+            title: "THE CHARIOT",
             up: "UPRIGHT: Control, willpower, success, action, determination", 
             down: "REVERSED: Self-discipline, opposition, lack of direction",
-            card: img.src = "https://www.biddytarot.com/wp-content/uploads/2018/06/ET-MA-07-the-chariot.jpg"});
+            card: "https://www.biddytarot.com/wp-content/uploads/2018/06/ET-MA-07-the-chariot.jpg"});
         tarot.push({
+            title: "STRENGTH",
             up: "UPRIGHT: Strength, courage, persuasion, influence, compassion", 
             down: "REVERSED: Inner strength, self-doubt, low energy, raw emotion",
-            card: img.src = "https://www.biddytarot.com/wp-content/uploads/2018/04/ET-MA-08-strength.jpg"});
+            card: "https://www.biddytarot.com/wp-content/uploads/2018/04/ET-MA-08-strength.jpg"});
         tarot.push({
+            title: "THE HERMIT",
             up: "UPRIGHT: Soul-searching, introspection, being alone, inner guidance", 
             down: "REVERSED: Isolation, loneliness, withdrawal",
-            card: img.src = "https://www.biddytarot.com/wp-content/uploads/2018/06/ET-MA-09-the-hermit.jpg"});
+            card: "https://www.biddytarot.com/wp-content/uploads/2018/06/ET-MA-09-the-hermit.jpg"});
         tarot.push({
+            title: "WHEEL OF FORTUNE",
             up: "UPRIGHT: Good luck, karma, life cycles, destiny, a turning point", 
             down: "REVERSED: Bad luck, resistance to change, breaking cycles",
-            card: img.src = "https://www.biddytarot.com/wp-content/uploads/2018/06/ET-MA-10-wheel-of-fortune.jpg"});
+            card: "https://www.biddytarot.com/wp-content/uploads/2018/06/ET-MA-10-wheel-of-fortune.jpg"});
         tarot.push({
+            title: "JUSTICE",
             up: "UPRIGHT: Justice, fairness, truth, cause and effect, law", 
             down: "REVERSED: Unfairness, lack of accountability, dishonesty",
-            card: img.src = "https://www.biddytarot.com/wp-content/uploads/2018/04/MA-11-justice.png"});
+            card: "https://www.biddytarot.com/wp-content/uploads/2018/04/MA-11-justice.png"});
         tarot.push({
+            title: "THE HANGED MAN",
             up: "UPRIGHT: Pause, surrender, letting go, new perspectives", 
             down: "REVERSED: Delays, resistance, stalling, indecision",
-            card: img.src = "https://www.biddytarot.com/wp-content/uploads/2018/04/MA-12-the-hanged-man.png"});
+            card: "https://www.biddytarot.com/wp-content/uploads/2018/04/MA-12-the-hanged-man.png"});
         tarot.push({
+            title: "DEATH",
             up: "UPRIGHT: Endings, change, transformation, transition", 
             down: "REVERSED: Resistance to change, personal transformation, inner purging",
-            card: img.src = "https://www.biddytarot.com/wp-content/uploads/2018/06/ET-MA-13-Death.jpg"});
+            card: "https://www.biddytarot.com/wp-content/uploads/2018/06/ET-MA-13-Death.jpg"});
         tarot.push({
+            title: "TEMPERANCE",
             up: "UPRIGHT: Balance, moderation, patience, purpose", 
             down: "REVERSED: Imbalance, excess, self-healing, re-alignment",
-            card: img.src = "https://www.biddytarot.com/wp-content/uploads/2018/06/ET-MA-14-Temperance.jpg"});
+            card: "https://www.biddytarot.com/wp-content/uploads/2018/06/ET-MA-14-Temperance.jpg"});
         tarot.push({
+            title: "THE DEVIL",
             up: "UPRIGHT: Shadow self, attachment, addiction, restriction, sexuality", 
             down: "REVERSED: Releasing limiting beliefs, exploring dark thoughts, detachment",
-            card: img.src = "https://www.biddytarot.com/wp-content/uploads/2018/06/ET-MA-15-The-Devil.jpg"});
+            card: "https://www.biddytarot.com/wp-content/uploads/2018/06/ET-MA-15-The-Devil.jpg"});
         tarot.push({
+            title: "THE TOWER",
             up: "UPRIGHT: Sudden change, upheaval, chaos, revelation, awakening", 
             down: "REVERSED: Personal transformation, fear of change, averting disaster",
-            card: img.src = "https://www.biddytarot.com/wp-content/uploads/2018/06/ET-MA-16-The-Tower.jpg"});
+            card: "https://www.biddytarot.com/wp-content/uploads/2018/06/ET-MA-16-The-Tower.jpg"});
         tarot.push({
+            title: "THE STAR",
             up: "UPRIGHT: Hope, faith, purpose, renewal, spirituality", 
             down: "REVERSED: Lack of faith, despair, self-trust, disconnection",
-            card: img.src = "https://www.biddytarot.com/wp-content/uploads/2018/06/ET-MA-17-The-Star.jpg"});
+            card: "https://www.biddytarot.com/wp-content/uploads/2018/06/ET-MA-17-The-Star.jpg"});
         tarot.push({
+            title: "THE MOON",
             up: "UPRIGHT: Illusion, fear, anxiety, subconscious, intuition", 
             down: "REVERSED: Release of fear, repressed emotion, inner confusion",
-            card: img.src = "https://www.biddytarot.com/wp-content/uploads/2018/06/ET-MA-18-The-Moon.jpg"});
+            card: "https://www.biddytarot.com/wp-content/uploads/2018/06/ET-MA-18-The-Moon.jpg"});
         tarot.push({
+            title: "THE SUN",
             up: "UPRIGHT: Positivity, fun, warmth, success, vitality", 
             down: "REVERSED: Inner child, feeling down, overly optimistic",
-            card: img.src = "https://www.biddytarot.com/wp-content/uploads/2018/06/ET-MA-19-The-Sun.jpg"});
+            card:  "https://www.biddytarot.com/wp-content/uploads/2018/06/ET-MA-19-The-Sun.jpg"});
         tarot.push({
+            title: "JUDGEMENT",
             up: "UPRIGHT: Judgement, rebirth, inner calling, absolution", 
             down: "REVERSED: Self-doubt, inner critic, ignoring the call",
-            card: img.src = "https://www.biddytarot.com/wp-content/uploads/2018/06/ET-MA-20-Judgement.jpg"});
+            card: "https://www.biddytarot.com/wp-content/uploads/2018/06/ET-MA-20-Judgement.jpg"});
         tarot.push({
+            title: "THE WORLD",
             up: "UPRIGHT: Completion, integration, accomplishment, travel", 
             down: "REVERSED: Seeking personal closure, short-cuts, delays",
-            card: img.src = "https://www.biddytarot.com/wp-content/uploads/2018/06/ET-MA-21-The-World.jpg"});
+            card: "https://www.biddytarot.com/wp-content/uploads/2018/06/ET-MA-21-The-World.jpg"});
 
 
         let randButt = document.getElementById('random');
-
-        let nodeImg = document.getElementById('#insertHere');
 
         randButt.onclick = function(){
             let r = getRandomCard(0, 21);
             let p = upOrDown(0, 1);
 
-            if (p == 0){
-                res.innerHTML = tarot[r].up;
-                document.querySelector('#insertHere').appendChild(tarot[r].card);
-            }else{
-                res.innerHTML = tarot[r].down;
-                document.querySelector('#insertHere').appendChild(tarot[r].card).style.transform = "rotate(180deg)";
+            if (p === 0){
+                title.innerHTML = tarot[r].title;
+                img.src = tarot[r].card;
+                cardImg.appendChild(img).style.transform = "rotate(0deg)";
+                mean.innerHTML = tarot[r].up;
+            }else if (p === 1){
+                title.innerHTML = tarot[r].title;
+                img.src = tarot[r].card;
+                cardImg.appendChild(img).style.transform = "rotate(180deg)";
+                mean.innerHTML = tarot[r].down;
             }
-
             console.log(r);
             console.log(p);
         }
