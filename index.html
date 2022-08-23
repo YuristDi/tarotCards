@@ -44,11 +44,7 @@
         let cardImg = document.querySelector("#cards");
         let mean = document.querySelector("#meanings");
 
-        function getRandomCard(min, max){
-            return Math.floor(Math.random() * (max - min + 1) + min);
-        }
-
-        function upOrDown(min, max){
+        function getRandomInt(min, max){
             return Math.floor(Math.random() * (max - min + 1) + min);
         }
 
@@ -170,8 +166,8 @@
         let randButt = document.getElementById('random');
 
         randButt.onclick = function(){
-            let r = getRandomCard(0, 21);
-            let p = upOrDown(0, 1);
+            let r = getRandomInt(0, 21);
+            let p = getRandomInt(0, 1);
 
             if (p === 0){
                 title.innerHTML = tarot[r].title;
