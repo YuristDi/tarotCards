@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    button {
+        display: inline;;
+        font-family: sans-serif;
+        font-size: 16px;
+        border-radius: 0%;
+        border-width: 1px;
+        width: 15%;
+        padding: 5px;
+        margin: 5px;
+    }
+    a{
+        text-decoration: none;
+        color: black;
+    }
+    a.visited{
+        color: black;
+    }
+    </style>
+</head>
+<body>
+    <button onClick = "showHide('tarotCards')"><a href="https://yuristdi.github.io/tarot.html">Карти Таро</a></button>
+
+    <button onClick = "showHide('HW7')">Домашня робота №7</button>
+    <div id = "HW7" style="display: none;">
+        <button><a href="https://yuristdi.github.io/SoftServe_HW_7/task1.html">Завдання 1</a></button>
+        <button><a href="https://yuristdi.github.io/SoftServe_HW_7/task2+4.html">Завдання 2+4</a></button>
+        <button><a href="https://yuristdi.github.io/SoftServe_HW_7/task3+5_error.html">Завдання 3+5</a></button>
+    </div>
+
+        <button onClick = "showHide('HW5')">Домашня робота №5</button>
+        <div id = "HW5" style="display: none;">
+            <button><a href="https://yuristdi.github.io/SoftServe_HW_5/task1.html">Завдання 1</a></button>
+            <button><a href="https://yuristdi.github.io/SoftServe_HW_5/task2.html">Завдання 2</a></button>
+            <button><a href="https://yuristdi.github.io/SoftServe_HW_5/task3.html">Завдання 3</a></button>    
+        </div>
+
+    <script>
+        function showHide(taskId) {
+        HWNum = document.getElementById(taskId);
+        if (HWNum.style.display == "none"){
+            HWNum.style.display = "block";
+        }else{
+            HWNum.style.display = "none";
+        }
+        }
+    </script>
+</body>
+</html>
